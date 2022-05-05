@@ -1,11 +1,7 @@
-from asyncio.windows_events import NULL
 import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
-
-from sklearn.feature_extraction.text import TfidfVectorizer
-
 
 def main():
     pickle_in = open('best_model.pkl', 'rb')
@@ -17,13 +13,6 @@ def main():
 
     text = [text]
     
-    #st.write(text)
-    
-    #vectorizer = TfidfVectorizer()  
-    #vect = vectorizer.fit_transform(text)
-
-    #prediction = classifier.predict(vect)
-
     prediction = classifier.predict(text)
 
 
@@ -32,7 +21,5 @@ def main():
         
     else:
         st.write("Your text is not sarcastic!")
-
-    st.write(str(prediction))
     
 main()
